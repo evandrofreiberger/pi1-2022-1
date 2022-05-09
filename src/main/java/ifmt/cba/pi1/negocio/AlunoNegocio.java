@@ -91,7 +91,7 @@ public class AlunoNegocio {
 
 		String mensagemErros = "";
 
-		if (alunoVO.getMatricula() > 0) {
+		if (alunoVO.getMatricula() <= 0) {
 			mensagemErros += "Matricula deve ser maior que zero";
 		}
 
