@@ -91,39 +91,12 @@ public class AlunoNegocio {
 
 		String mensagemErros = "";
 
+		if (alunoVO.getMatricula() > 0) {
+			mensagemErros += "Matricula deve ser maior que zero";
+		}
+
 		if (alunoVO.getNome() == null || alunoVO.getNome().length() == 0) {
 			mensagemErros += "Nome do aluno nao pode ser vazio";
-		}
-
-		if (alunoVO.getNomeMae() == null || alunoVO.getNomeMae().length() == 0) {
-			mensagemErros += "\nNome da mae nao pode ser vazio";
-		}
-
-		if (alunoVO.getNomePai() == null || alunoVO.getNomePai().length() == 0) {
-			mensagemErros += "\nNome do pai nao pode ser vazio";
-		}
-
-		if (alunoVO.getSexo() == null) {
-			mensagemErros += "\nSexo nao pode ser nulo";
-		}
-
-		if (alunoVO.getEndereco().getLogradouro() == null || alunoVO.getEndereco().getLogradouro().length() == 0) {
-			mensagemErros += "\nLogradouro nao pode ser vazio";
-		}
-
-		if (alunoVO.getEndereco().getNumero() <= 0) {
-			mensagemErros += "\nNumero deve ser maior que zero";
-		}
-
-		if (alunoVO.getEndereco().getBairro() == null || alunoVO.getEndereco().getBairro().length() == 0) {
-			mensagemErros += "\nBairro nao pode ser vazio";
-		}
-
-		if (alunoVO.getEndereco().getCidade() == null || alunoVO.getEndereco().getCidade().length() == 0) {
-			mensagemErros += "\nCidade nao pode ser vazio";
-		}
-		if (alunoVO.getEndereco().getUf() == null) {
-			mensagemErros += "\nUF nao pode ser vazio";
 		}
 
 		return mensagemErros;
