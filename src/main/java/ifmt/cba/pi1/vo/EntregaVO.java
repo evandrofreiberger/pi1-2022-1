@@ -1,10 +1,11 @@
 package ifmt.cba.pi1.vo;
-import java.util.Date;
+
+import ifmt.cba.pi1.util.data.DataUtil;
 
 public class EntregaVO{
     private int codigo;
-    private Date dataPrevista;
-    private Date dataRealizada;
+    private DataUtil dataPrevista;
+    private DataUtil dataRealizada;
     private String arquivo;
     private TipoEntregaVO tipo;
     
@@ -13,13 +14,13 @@ public class EntregaVO{
 
 public EntregaVO(){
     this.codigo = 0;
-    this.dataPrevista = x;
-    this.dataRealizada = y;
+    this.dataPrevista = null;
+    this.dataRealizada = null;
     this.arquivo = " ";
     this.tipo = TipoEntregaVO.parcial;
 }
 
-public EntregaVO(int codigo,Date dataPrevista , Date dataRealizada, String arquivo, TipoEntregaVO tipo){
+public EntregaVO(int codigo,DataUtil dataPrevista , DataUtil dataRealizada, String arquivo, TipoEntregaVO tipo){
     this();
     this.codigo = codigo;
     this.dataPrevista = dataPrevista;
@@ -36,19 +37,19 @@ public void setcodigo (int codigo){
     this.codigo = codigo;
 }
 
-public Date getDataPrevista(){
+public DataUtil getDataPrevista(){
     return dataPrevista;
 }
 
-public void setDataPrevista (Date dataPrevista){
+public void setDataPrevista (DataUtil dataPrevista){
     this.dataPrevista = dataPrevista;
 }
 
-public Date getDataRealizada(){
+public DataUtil getDataRealizada(){
     return dataRealizada;
 }
 
-public void setDataRealizada (Date dataRealizada){
+public void setDataRealizada (DataUtil dataRealizada){
     this.dataRealizada = dataRealizada;
 }
 
@@ -64,7 +65,7 @@ public TipoEntregaVO getTipo(){
     return tipo;
 }
 public void setTipo(TipoEntregaVO tipo){
-    this.tipo = tipo
+    this.tipo = tipo;
 }
 
 }
