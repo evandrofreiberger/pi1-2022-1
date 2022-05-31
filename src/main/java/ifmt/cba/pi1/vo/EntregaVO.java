@@ -7,7 +7,7 @@ public class EntregaVO{
     private DataUtil dataPrevista;
     private DataUtil dataRealizada;
     private String arquivo;
-    private TipoEntregaVO tipo;
+    private TipoEntregaEnum tipo;
     
 
 
@@ -17,10 +17,10 @@ public EntregaVO(){
     this.dataPrevista = null;
     this.dataRealizada = null;
     this.arquivo = "";
-    this.tipo = TipoEntregaVO.parcial;
+    this.tipo = TipoEntregaEnum.PARCIAL;
 }
 
-public EntregaVO(int codigo,DataUtil dataPrevista , DataUtil dataRealizada, String arquivo, TipoEntregaVO tipo){
+public EntregaVO(int codigo,DataUtil dataPrevista , DataUtil dataRealizada, String arquivo, TipoEntregaEnum tipo){
     this();
     this.codigo = codigo;
     this.dataPrevista = dataPrevista;
@@ -61,10 +61,10 @@ public void setArquivo (String arquivo){
     this.arquivo = arquivo;
 }
 
-public TipoEntregaVO getTipo(){
+public TipoEntregaEnum getTipo(){
     return tipo;
 }
-public void setTipo(TipoEntregaVO tipo){
+public void setTipo(TipoEntregaEnum tipo){
     this.tipo = tipo;
 }
 
