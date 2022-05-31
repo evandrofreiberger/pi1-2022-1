@@ -9,7 +9,7 @@ public class AgendaReuniaoNegocio {
 	private IAgendaReuniaoDAO agendaReuniaoDAO;
 
 	public AgendaReuniaoNegocio() throws NegocioException {
-		// aqui sera instanciado um objeto AlunoDAO
+		// aqui sera instanciado um objeto AgendaReuniaoDAO
 	}
 	public void inserir(AgendaReuniaoVO agendaReuniaoVO) throws NegocioException {
 
