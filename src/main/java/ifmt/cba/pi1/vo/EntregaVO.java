@@ -16,7 +16,7 @@ public EntregaVO(){
     this.codigo = 0;
     this.dataPrevista = null;
     this.dataRealizada = null;
-    this.arquivo = " ";
+    this.arquivo = "";
     this.tipo = TipoEntregaVO.parcial;
 }
 
