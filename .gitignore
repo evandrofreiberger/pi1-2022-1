@@ -28,3 +28,4 @@ hs_err_pid*
 # pasta target deve ser ignorada de um projeto Java/Maven
 **target
 **bin
+**.vscode
