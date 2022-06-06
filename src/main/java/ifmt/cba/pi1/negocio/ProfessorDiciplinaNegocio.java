@@ -6,8 +6,9 @@ import java.util.List;
 import ifmt.cba.pi1.persistencia.IProfessorDiciplinaDAO;
 import ifmt.cba.pi1.persistencia.PersistenciaException;
 import ifmt.cba.pi1.vo.ProfessorDisciplinaVO;
+import ifmt.cba.pi1.vo.ProfessorVO;
 
-public class ProfessorDiciplinaNegocio {
+public class ProfessorDiciplinaNegocio  extends ProfessorVO{
     private IProfessorDiciplinaDAO professorDiciplinaDAO;
 
 	public ProfessorDiciplinaNegocio() throws NegocioException {
@@ -80,9 +81,12 @@ public class ProfessorDiciplinaNegocio {
 		}
 		return null;
 	}
+
 	private String validarDados(ProfessorDisciplinaVO professorDisciplinaVO) {
 
 		String mensagemErros = "";
+
+		mensagemErros += super.valida
 
 		if (professorDisciplinaVO.getMatricula() == null || professorDisciplinaVO.getMatricula().length() == 0) {
 			mensagemErros += "Matricula não pode ser nula";

@@ -1,6 +1,7 @@
 package ifmt.cba.pi1.vo;
 
 public class ConvidadoVO {
+	private int codigo;
 	private String nome;
 	private String email;
 	private String fone;
@@ -29,6 +30,15 @@ public class ConvidadoVO {
 		this.observacoes = observacoes;
 		this.nota = nota;
 		this.codigoAcesso = codigoAcesso;
+	}
+
+	
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getNome() {
@@ -86,6 +96,4 @@ public class ConvidadoVO {
 	public void setCodigoAcesso(int codigoAcesso) {
 		this.codigoAcesso = codigoAcesso;
 	}
-	
-
 }

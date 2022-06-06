@@ -29,7 +29,7 @@ public CursoVO(int codigo, String nome){
         return nome;
     }
 
-    public void setNome (String Nome){
+    public void setNome (String nome){
         this.nome = nome;
     }
 
