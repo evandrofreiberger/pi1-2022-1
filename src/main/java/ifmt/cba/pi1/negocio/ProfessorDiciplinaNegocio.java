@@ -86,8 +86,6 @@ public class ProfessorDiciplinaNegocio  extends ProfessorVO{
 
 		String mensagemErros = "";
 
-		mensagemErros += super.valida
-
 		if (professorDisciplinaVO.getMatricula() == null || professorDisciplinaVO.getMatricula().length() == 0) {
 			mensagemErros += "Matricula não pode ser nula";
 		}

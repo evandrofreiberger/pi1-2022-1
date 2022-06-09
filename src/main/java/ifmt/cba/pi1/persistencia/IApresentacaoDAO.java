@@ -12,7 +12,7 @@ public interface IApresentacaoDAO extends IDAO{
 
 	public void excluir(ApresentacaoVO apresentacaoVO) throws PersistenciaException;
 
-    public ApresentacaoDAO buscarPorCodigo(int codigo) throws PersistenciaException;
+    public ApresentacaoVO buscarPorCodigo(int codigo) throws PersistenciaException;
 
 	public List<ApresentacaoVO> buscarPorNome(String nome) throws PersistenciaException;
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import ifmt.cba.pi1.persistencia.ITCCDAO;
 import ifmt.cba.pi1.persistencia.PersistenciaException;
+import ifmt.cba.pi1.vo.AlunoVO;
 import ifmt.cba.pi1.vo.TCCVO;
 
 public class TCCNegocio {
@@ -89,16 +90,6 @@ public class TCCNegocio {
 
 	private String validarDados(TCCVO tccVO) {
 
-		String mensagemErros = "";
-
-		if (tccVO.getCodigo() <= 0) {
-			mensagemErros += "Codigo deve ser maior que zero";
-		}
-
-		if (tccVO.getTema() == null || tccVO.getTema().length() == 0) {
-			mensagemErros += "O tema nao pode ser vazio";
-		}
-
-		return mensagemErros;
+		return null;
 	}
 }
