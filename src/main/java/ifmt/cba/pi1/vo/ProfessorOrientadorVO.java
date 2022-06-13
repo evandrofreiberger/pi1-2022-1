@@ -3,6 +3,7 @@ package ifmt.cba.pi1.vo;
 import java.util.List;
 
 public class ProfessorOrientadorVO extends ProfessorVO {
+    
     private List listTCC;
 
     public List getList() {

@@ -8,7 +8,7 @@ import ifmt.cba.pi1.persistencia.PersistenciaException;
 import ifmt.cba.pi1.vo.ProfessorDisciplinaVO;
 import ifmt.cba.pi1.vo.ProfessorVO;
 
-public class ProfessorDiciplinaNegocio  extends ProfessorVO{
+public class ProfessorDiciplinaNegocio  extends ProfessorNegocio{
     private IProfessorDiciplinaDAO professorDiciplinaDAO;
 
 	public ProfessorDiciplinaNegocio() throws NegocioException {
@@ -86,14 +86,10 @@ public class ProfessorDiciplinaNegocio  extends ProfessorVO{
 
 		String mensagemErros = "";
 
-		mensagemErros += super.valida
+		mensagemErros += super.validarDados(professorDisciplinaVO);
 
-		if (professorDisciplinaVO.getMatricula() == null || professorDisciplinaVO.getMatricula().length() == 0) {
-			mensagemErros += "Matricula não pode ser nula";
-		}
-
-		if (professorDisciplinaVO.getNome() == null || professorDisciplinaVO.getNome().length() == 0) {
-			mensagemErros += "Nome do Convidado nao pode ser vazio";
+		if(professorDisciplinaVO.getListTCC() == null){
+			mensagemErros += "Lista de TCC nao iniciada";
 		}
 
 		return mensagemErros;

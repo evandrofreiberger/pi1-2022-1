@@ -96,7 +96,7 @@ public class AlunoNegocio {
 		}
 
 		if (alunoVO.getNome() == null || alunoVO.getNome().length() == 0) {
-			mensagemErros += "Nome do aluno nao pode ser vazio";
+			mensagemErros += "\nNome do aluno nao pode ser vazio";
 		}
 
 		return mensagemErros;
