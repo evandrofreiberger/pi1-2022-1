@@ -1,10 +1,5 @@
 package ifmt.cba.pi1.vo;
 
-import ifmt.cba.pi1.util.data.DataUtil;
-
-import java.sql.Time;
-import java.util.List;
-
 public class ApresentacaoVO{
 
     private int codigo;
@@ -29,40 +24,40 @@ public class ApresentacaoVO{
         this.media= 0;
     }
 
-    public ApresentacaoVO(int codigo, String local, float media, DataUtil data, Time hora, TCCVO tcc, List<ConvidadoVO> listConvidado) {
+    public AlunoVO(int codigo, String local, float media, DataUtil data, Time hora, TCCVO tcc) {
+        super();
         this.codigo = codigo;
         this.local = local;
         this.media = media;
         this.data = data;
-        this.hora = hora;
+        this.hora = hora; 
         this.tcc = tcc;
-        ListConvidado = listConvidado;
     }
 
     public int getCodigo(){
         return codigo;
     }
-    public void setCodigo(){
+    public void setCodigo(int codigo){
         this.codigo = codigo;
     }
 
     public String getLocal(){
         return local;
     }
-    public void setLocal(){
+    public void setLocal(String local){
         this.local = local;
     }
 
     public float getMedia(){
         return media;
     }
-    public void setMedia(){
+    public void setMedia(float media){
         this.media = media;
     }
     public DataUtil getData(){
         return data;
     }
-    public void setData(){
+    public void setData(DataUtil data){
         this.data = data;
     }
 
