@@ -1,9 +1,6 @@
 package ifmt.cba.pi1.persistencia;
 
-import ifmt.cba.pi1.vo.AlunoVO;
-
 import javax.persistence.EntityManager;
-import java.util.List;
 
 public abstract class DAO<VO> {
 

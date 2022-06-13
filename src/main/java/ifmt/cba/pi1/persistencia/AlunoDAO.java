@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
 public class AlunoDAO extends DAO<AlunoVO> implements IAlunoDAO {
 

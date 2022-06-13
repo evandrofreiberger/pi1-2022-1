@@ -1,7 +1,6 @@
 package ifmt.cba.pi1.negocio;
 
 import static org.junit.Assert.fail;
-import static org.junit.Assume.assumeNoException;
 
 import org.junit.Test;
 
