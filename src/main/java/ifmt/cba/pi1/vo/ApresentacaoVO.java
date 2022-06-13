@@ -1,5 +1,10 @@
 package ifmt.cba.pi1.vo;
 
+import java.sql.Time;
+import java.util.List;
+
+import ifmt.cba.pi1.util.data.DataUtil;
+
 public class ApresentacaoVO{
 
     private int codigo;
@@ -24,7 +29,7 @@ public class ApresentacaoVO{
         this.media= 0;
     }
 
-    public AlunoVO(int codigo, String local, float media, DataUtil data, Time hora, TCCVO tcc) {
+    public ApresentacaoVO(int codigo, String local, float media, DataUtil data, Time hora, TCCVO tcc) {
         super();
         this.codigo = codigo;
         this.local = local;
