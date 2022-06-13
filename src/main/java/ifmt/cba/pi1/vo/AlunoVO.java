@@ -1,13 +1,26 @@
 package ifmt.cba.pi1.vo;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "aluno")
 public class AlunoVO {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int matricula;
+
+    @Column(name = "nome", nullable = false, length = 50)
     private String nome;
-    
+
+    @ManyToOne
+    @JoinColumn(name = "curso_id")
+    private CursoVO cursoVO;
+
     public AlunoVO() {
         this.matricula = 0;
         this.nome = "";
+        this.cursoVO = new CursoVO();
     }
 
     public AlunoVO(int matricula, String nome) {
@@ -34,7 +47,15 @@ public class AlunoVO {
 
     @Override
     public String toString() {
-        return matricula +" - "+ nome;
+        return matricula + " - " + nome;
+    }
+
+    public CursoVO getCursoVO() {
+        return cursoVO;
+    }
+
+    public void setCursoVO(CursoVO cursoVO) {
+        this.cursoVO = cursoVO;
     }
 
     @Override
@@ -59,5 +80,5 @@ public class AlunoVO {
         return true;
     }
 
-   
+
 }

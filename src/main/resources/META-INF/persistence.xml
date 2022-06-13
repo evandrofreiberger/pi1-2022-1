@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence
+        version="2.1"
+        xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_1.xsd">
+
+    <persistence-unit name="UnidadeTccJPA" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>ifmt.cba.pi1.vo.AlunoVO</class>
+        <class>ifmt.cba.pi1.vo.CursoVO</class>
+        <class>ifmt.cba.pi1.vo.CalendarioTccVO</class>
+        <class>ifmt.cba.pi1.vo.AgendaReuniaoVO</class>
+        <class>ifmt.cba.pi1.vo.ConvidadoVO</class>
+        <class>ifmt.cba.pi1.vo.TipoEntregaVO</class>
+        <class>ifmt.cba.pi1.vo.EntregaVO</class>
+        <class>ifmt.cba.pi1.vo.DepartamentoVO</class>
+        <class>ifmt.cba.pi1.vo.ProfessorVO</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/tccJPA"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.password" value="postgres"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- create / create-drop / update -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+
+
+    </persistence-unit>
+</persistence>

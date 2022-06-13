@@ -22,7 +22,7 @@ public class ApresentacaoNegocio {
 		if (this.apresentacaoDAO != null) {
 			try {
 				apresentacaoDAO.beginTransaction();
-				apresentacaoDAO.incluir(agendaReuniaoVO);
+				apresentacaoDAO.incluir(apresentacaoVO);
 				apresentacaoDAO.commitTransaction();
 			} catch (PersistenciaException ex) {
 				apresentacaoDAO.rollbackTransaction();
@@ -78,10 +78,6 @@ public class ApresentacaoNegocio {
 
 		if (apresentacaoVO.getCodigo() <= 0) {
 			mensagemErros += "Codigo deve ser maior que zero";
-		}
-
-		if (apresentacaoVO.getAssunto() == null || apresentacaoVO.getAssunto().length() == 0) {
-			mensagemErros += "Assunto da Apresentacao nao pode ser vazio";
 		}
 
 		return mensagemErros;

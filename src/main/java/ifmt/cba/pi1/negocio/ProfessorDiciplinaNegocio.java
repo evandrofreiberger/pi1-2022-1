@@ -86,10 +86,19 @@ public class ProfessorDiciplinaNegocio  extends ProfessorNegocio{
 
 		String mensagemErros = "";
 
+<<<<<<< HEAD
 		mensagemErros += super.validarDados(professorDisciplinaVO);
 
 		if(professorDisciplinaVO.getListTCC() == null){
 			mensagemErros += "Lista de TCC nao iniciada";
+=======
+		if (professorDisciplinaVO.getMatricula() == null || professorDisciplinaVO.getMatricula().length() == 0) {
+			mensagemErros += "Matricula não pode ser nula";
+		}
+
+		if (professorDisciplinaVO.getNome() == null || professorDisciplinaVO.getNome().length() == 0) {
+			mensagemErros += "Nome do Convidado nao pode ser vazio";
+>>>>>>> dc7dbdf5ef5e5ffd6152769027416ee0783469af
 		}
 
 		return mensagemErros;

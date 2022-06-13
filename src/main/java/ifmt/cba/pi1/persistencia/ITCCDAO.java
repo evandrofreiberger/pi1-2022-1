@@ -2,6 +2,7 @@ package ifmt.cba.pi1.persistencia;
 
 import java.util.List;
 
+import ifmt.cba.pi1.vo.AlunoVO;
 import ifmt.cba.pi1.vo.TCCVO;
 
 
