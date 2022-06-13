@@ -4,7 +4,6 @@ import java.util.List;
 
 import ifmt.cba.pi1.persistencia.AlunoDAO;
 import ifmt.cba.pi1.persistencia.FabricaEntityManager;
-import ifmt.cba.pi1.persistencia.IAlunoDAO;
 import ifmt.cba.pi1.persistencia.PersistenciaException;
 import ifmt.cba.pi1.vo.AlunoVO;
 

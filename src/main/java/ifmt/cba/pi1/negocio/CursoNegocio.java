@@ -3,7 +3,6 @@ package ifmt.cba.pi1.negocio;
 import ifmt.cba.pi1.persistencia.CursoDAO;
 import ifmt.cba.pi1.persistencia.FabricaEntityManager;
 import ifmt.cba.pi1.persistencia.PersistenciaException;
-import ifmt.cba.pi1.vo.AlunoVO;
 import ifmt.cba.pi1.vo.CursoVO;
 
 import java.util.List;

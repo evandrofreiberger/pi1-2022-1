@@ -2,7 +2,6 @@ package ifmt.cba.pi1.vo;
 
 import javax.persistence.*;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "curso")
