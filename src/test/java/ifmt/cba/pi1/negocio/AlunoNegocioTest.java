@@ -73,7 +73,7 @@ public class AlunoNegocioTest {
                 alunoVO.setMatricula(0);
                 alunoVO.setNome("");
                 alunoNegocio.inserir(alunoVO); // inserção de aluno - incorreto
-
+                fail("Não poderia chegar nessa linha, deve gerar exceção antes");
             } catch (NegocioException e) {
                 System.out.println(e.getMessage()); // deve gerar exceção e mostrar falha na matricula e nome
             }
