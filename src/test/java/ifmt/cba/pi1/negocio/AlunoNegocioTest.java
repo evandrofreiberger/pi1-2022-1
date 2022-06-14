@@ -38,7 +38,7 @@ public class AlunoNegocioTest {
             fail(e.getMessage()); // se não iniciar o objeto de negócio
         }
 
-        if (alunoNegocio != null) {
+        if (alunoNegocio != null && cursoNegocio != null) {
 
             // inserção de aluno - tudo correto
             try {
@@ -55,22 +55,17 @@ public class AlunoNegocioTest {
                     if (alunoVO.getMatricula() == 0) {
                         fail("Erro de gravação da matricula");
                     }
-                    if (!alunoVO.getNome().equals("Fulano das Quantas")) {
-                        fail("Erro de gravação do nome");
-                    }
                 } else {
                     fail("Inclusão não foi bem sucedida"); // não localizado
                 }
 
             } catch (NegocioException e) {
-                e.printStackTrace();
                 fail(e.getMessage()); // não pode gerar exceção
             }
 
             // inserção de aluno - dados incorretos
             try {
                 AlunoVO alunoVO = new AlunoVO();
-                alunoVO.setMatricula(0);
                 alunoVO.setNome("");
                 alunoNegocio.inserir(alunoVO); // inserção de aluno - incorreto
                 fail("Não poderia chegar nessa linha, deve gerar exceção antes");
@@ -86,12 +81,8 @@ public class AlunoNegocioTest {
 
     }
 
-    @Test
-    public void testPesquisaParteNome() {
-
-    }
-
     private void preparaDadosAlunoInclusao(){
+
         EntityManager em = FabricaEntityManager.getEntityManager();
         em.getTransaction().begin();
         Query query1 = em.createNativeQuery("DELETE FROM aluno");
@@ -101,5 +92,6 @@ public class AlunoNegocioTest {
         CursoVO cursoVO = new CursoVO("Engenharia da Computação");
         em.persist(cursoVO);
         em.getTransaction().commit();
+
     }
 }
