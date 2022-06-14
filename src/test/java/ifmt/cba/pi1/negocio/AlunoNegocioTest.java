@@ -2,48 +2,23 @@ package ifmt.cba.pi1.negocio;
 
 import static org.junit.Assert.fail;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
 import org.junit.Test;
 
+import ifmt.cba.pi1.persistencia.FabricaEntityManager;
 import ifmt.cba.pi1.vo.AlunoVO;
+import ifmt.cba.pi1.vo.CursoVO;
 
 public class AlunoNegocioTest {
 
     private AlunoNegocio alunoNegocio;
+    private CursoNegocio cursoNegocio;
 
     @Test
     public void testAlterar() {
-        AlunoVO alunoVO = new AlunoVO();
-
-        try {
-            alunoNegocio = new AlunoNegocio(); // iniciando o objeto de negócio
-        } catch (NegocioException e) {
-            System.out.println(e.getMessage());
-            fail(e.getMessage()); // se não iniciar o objeto de negócio
-        }
-
-        if (alunoNegocio != null) {
-
-            // alteração de aluno - tudo correto
-            try {
-                alunoVO.setMatricula(123);
-                alunoVO.setNome("Fulano das Quantas");
-                alunoNegocio.inserir(alunoVO);
-
-            } catch (NegocioException e) {
-                fail(e.getMessage()); // não pode gerar exceção
-            }
-
-            // inserção de aluno - dados incorretos
-            try {
-                alunoVO.setMatricula(0);
-                alunoVO.setNome("");
-                alunoNegocio.inserir(alunoVO); // inserção de aluno - incorreto
-
-            } catch (NegocioException e) {
-                System.out.println(e.getMessage()); // deve gerar exceção e mostrar falha na matricula e nome
-            }
-
-        }
+ 
     }
 
     @Test
@@ -54,12 +29,12 @@ public class AlunoNegocioTest {
     @Test
     public void testInserir() {
 
-        AlunoVO alunoVO = new AlunoVO();
+        this.preparaDadosAlunoInclusao();
 
         try {
             alunoNegocio = new AlunoNegocio(); // iniciando o objeto de negócio
+            cursoNegocio = new CursoNegocio();
         } catch (NegocioException e) {
-            System.out.println(e.getMessage());
             fail(e.getMessage()); // se não iniciar o objeto de negócio
         }
 
@@ -67,13 +42,17 @@ public class AlunoNegocioTest {
 
             // inserção de aluno - tudo correto
             try {
-                alunoVO.setMatricula(123);
+                AlunoVO alunoVO = new AlunoVO();
                 alunoVO.setNome("Fulano das Quantas");
-                alunoNegocio.inserir(alunoVO);
 
-                alunoVO = alunoNegocio.pesquisaMatricula(123);
+                CursoVO cursoVO = cursoNegocio.buscarPorNomeCurso("Engenharia da Computação").get(0);
+                alunoVO.setCursoVO(cursoVO);
+
+                alunoNegocio.inserir(alunoVO);
+ 
+                alunoVO = alunoNegocio.pesquisaPorNome("Fulano das Quantas").get(0);
                 if (alunoVO != null) {
-                    if (alunoVO.getMatricula() != 123) {
+                    if (alunoVO.getMatricula() == 0) {
                         fail("Erro de gravação da matricula");
                     }
                     if (!alunoVO.getNome().equals("Fulano das Quantas")) {
@@ -84,11 +63,13 @@ public class AlunoNegocioTest {
                 }
 
             } catch (NegocioException e) {
+                e.printStackTrace();
                 fail(e.getMessage()); // não pode gerar exceção
             }
 
             // inserção de aluno - dados incorretos
             try {
+                AlunoVO alunoVO = new AlunoVO();
                 alunoVO.setMatricula(0);
                 alunoVO.setNome("");
                 alunoNegocio.inserir(alunoVO); // inserção de aluno - incorreto
@@ -108,5 +89,17 @@ public class AlunoNegocioTest {
     @Test
     public void testPesquisaParteNome() {
 
+    }
+
+    private void preparaDadosAlunoInclusao(){
+        EntityManager em = FabricaEntityManager.getEntityManager();
+        em.getTransaction().begin();
+        Query query1 = em.createNativeQuery("DELETE FROM aluno");
+        query1.executeUpdate();
+        Query query2 = em.createNativeQuery("DELETE FROM curso");
+        query2.executeUpdate();
+        CursoVO cursoVO = new CursoVO("Engenharia da Computação");
+        em.persist(cursoVO);
+        em.getTransaction().commit();
     }
 }
