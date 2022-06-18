@@ -18,14 +18,13 @@ public class AlunoVO {
     private CursoVO cursoVO;
 
     public AlunoVO() {
-        this.matricula = 0;
         this.nome = "";
         this.cursoVO = new CursoVO();
     }
 
-    public AlunoVO(int matricula, String nome) {
+
+    public AlunoVO(String nome) {
         this();
-        this.matricula = matricula;
         this.nome = nome;
     }
 
