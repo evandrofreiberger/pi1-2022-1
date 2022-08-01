@@ -16,11 +16,9 @@ public class CursoDAO extends DAO<CursoVO> implements ICursoDAO {
 
     @Override
     public CursoVO buscarPorCodigo(int codigo) throws PersistenciaException {
-        CursoVO cursoVO = null;
-        try {
-            cursoVO = this.entityManager.find(CursoVO.class, codigo);
-        } catch (Exception ex) {
-            throw new PersistenciaException("Erro na selecao por codigo -- " + ex.getMessage());
+        CursoVO cursoVO = this.entityManager.find(CursoVO.class, codigo);
+        if (cursoVO == null) {
+            throw new PersistenciaException("Erro na selecao por codigo " + codigo);
         }
         return cursoVO;
     }

@@ -6,6 +6,8 @@ import ifmt.cba.pi1.util.data.DataUtil;
 
 public class InterrupcaoVO {
 
+	
+
 	private Integer codigo;
 	private DataUtil data;
 	private String motivo;
@@ -75,6 +77,10 @@ public class InterrupcaoVO {
 		return Objects.equals(codigo, other.codigo);
 	}
 	
+	@Override
+	public String toString() {
+		return "InterrupcaoVO [codigo=" + codigo + ", data=" + data + ", motivo=" + motivo + ", tcc=" + tcc + "]";
+	}
 	
 	
 	

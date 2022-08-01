@@ -17,11 +17,9 @@ public class AlunoDAO extends DAO<AlunoVO> implements IAlunoDAO {
     @Override
     public AlunoVO buscarPorMatricula(int matricula) throws PersistenciaException {
         AlunoVO alunoVO = null;
-
-        try {
-            alunoVO = this.entityManager.find(AlunoVO.class, matricula);
-        } catch (Exception ex) {
-            throw new PersistenciaException("Erro na selecao por matricula");
+        alunoVO = this.entityManager.find(AlunoVO.class, matricula);
+        if (alunoVO == null) {
+            throw new PersistenciaException("Erro na selecao por matricula " + matricula);
         }
         return alunoVO;
     }

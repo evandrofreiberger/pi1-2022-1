@@ -58,7 +58,6 @@ public class AlunoNegocio {
     }
 
     public void excluir(AlunoVO alunoVO) throws NegocioException {
-        if (this.alunoDAO != null) {
             try {
                 alunoDAO.beginTransaction();
                 alunoDAO.excluir(alunoVO);
@@ -68,7 +67,7 @@ public class AlunoNegocio {
                 throw new NegocioException("Erro ao excluir o aluno - " + ex.getMessage());
             }
         }
-    }
+
 
     public List<AlunoVO> pesquisaPorNome(String parteNome) throws NegocioException {
         if (this.alunoDAO != null) {
@@ -82,15 +81,12 @@ public class AlunoNegocio {
     }
 
     public AlunoVO pesquisaMatricula(int matricula) throws NegocioException {
-        if (this.alunoDAO != null) {
             try {
                 return alunoDAO.buscarPorMatricula(matricula);
             } catch (PersistenciaException ex) {
                 throw new NegocioException("Erro ao pesquisar aluno pela matricula - " + ex.getMessage());
             }
         }
-        return null;
-    }
 
     private String validarDados(AlunoVO alunoVO) {
 

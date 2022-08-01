@@ -36,12 +36,12 @@ public class CursoNegocio {
 
     public void alterar(CursoVO cursoVO) throws NegocioException {
         String mensagemErros = this.validarDados(cursoVO);
-        if (mensagemErros.isEmpty()) {
+        if (!mensagemErros.isEmpty()) {
             throw new NegocioException(mensagemErros);
         }
         try {
             cursoDAO.beginTransaction();
-            cursoDAO.incluir(cursoVO);
+            cursoDAO.alterar(cursoVO);
             cursoDAO.commitTransaction();
         } catch (PersistenciaException ex) {
             cursoDAO.rollbackTransaction();
@@ -51,7 +51,7 @@ public class CursoNegocio {
 
     public void excluir(CursoVO cursoVO) throws NegocioException {
         String mensagemErros = this.validarDados(cursoVO);
-        if (mensagemErros.isEmpty()) {
+        if (!mensagemErros.isEmpty()) {
             throw new NegocioException(mensagemErros);
         }
         try {
